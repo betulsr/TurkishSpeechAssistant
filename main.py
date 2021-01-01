@@ -14,18 +14,18 @@ def record(ask = False):
         try:
             voice = r.recognize_google(audio , language='tr-TR')
         except sr.UnknownValueError:
-            print('anlayamadim')
+            print('uzgunum, anlayamadim')
         except sr.requestError:
             print('sistem calismiyor')
         return voice
 
 def response(voice):
     if 'nasilsin' in voice:
-        print('iyi senden')
+        print('iyi sen nasilsin')
     if 'saat kac' in voice:
         print(datetime.now().strftime('%H:%M:%S'))
     if 'arama yap' in voice:
-        search = record('ne aramak istiyorsun')
+        search = record('ne aramak istersin')
         url= 'https:/google.com/search?q='+ search
         webbrowser.get().open(url)
         print(search + 'icin bulduklarim')
